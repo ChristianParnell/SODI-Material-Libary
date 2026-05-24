@@ -1,5 +1,5 @@
 const STORAGE_KEY = "sodiMaterialLibraryPrototype.v1"
-
+//
 const defaultMaterials = [
   {
     id: "paper-a2-white",
