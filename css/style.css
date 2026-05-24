@@ -215,25 +215,36 @@ main {
 .hero-copy::before {
   content: "";
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: clamp(230px, 30vw, 330px);
+  height: clamp(230px, 30vw, 330px);
   border-radius: 50%;
   background: var(--vuw-yellow);
-  right: -100px;
-  top: -100px;
+  right: clamp(-85px, -7vw, -52px);
+  top: clamp(-112px, -8vw, -76px);
   opacity: 0.92;
+  z-index: 0;
 }
 
 .hero-copy::after {
   content: "2026";
   position: absolute;
-  right: 1.4rem;
-  top: 1rem;
+  right: clamp(1.1rem, 3vw, 2.4rem);
+  top: clamp(0.7rem, 2vw, 1.35rem);
+  width: clamp(7.2rem, 17vw, 12.5rem);
   color: var(--vuw-deep);
-  font-size: clamp(2.2rem, 8vw, 4.8rem);
+  font-size: clamp(2.35rem, 6.2vw, 4.35rem);
   font-weight: 950;
-  letter-spacing: 0.02em;
+  line-height: 0.86;
+  text-align: center;
+  letter-spacing: 0.015em;
   transform: rotate(-3deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-copy > * {
+  position: relative;
+  z-index: 2;
 }
 
 .eyebrow {
@@ -247,8 +258,9 @@ main {
 
 .hero-copy .eyebrow {
   color: var(--vuw-yellow);
+  max-width: calc(100% - clamp(180px, 28vw, 230px));
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 h1,
@@ -979,8 +991,21 @@ code {
   }
 
   .hero-copy::before {
-    width: 210px;
-    height: 210px;
+    width: 220px;
+    height: 220px;
+    right: -58px;
+    top: -74px;
+  }
+
+  .hero-copy::after {
+    right: 1.05rem;
+    top: 0.78rem;
+    width: 7.1rem;
+    font-size: 2.25rem;
+  }
+
+  .hero-copy .eyebrow {
+    max-width: calc(100% - 180px);
   }
 
   .material-meta,
