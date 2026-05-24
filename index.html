@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VUW SODI Material Library | Te Aro Campus</title>
+  <meta name="description" content="A GitHub Pages prototype for a donated materials catalogue and booking system for SODI students at Te Aro Campus." />
+  <link rel="icon" href="assets/vuw-logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#catalogue">Skip to catalogue</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a class="brand-lockup" href="#top" aria-label="SODI Material Library home">
+        <img src="assets/vuw-logo.png" alt="Victoria University of Wellington crest" />
+        <span>
+          <strong>SODI Material Library</strong>
+          <small>Te Aro Campus · Prototype 2026</small>
+        </span>
+      </a>
+
+      <button class="menu-button" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#catalogue">Catalogue</a>
+        <a href="#booking">Book materials</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#donate">Donate</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section" aria-labelledby="heroTitle">
+      <div class="hero-art" role="img" aria-label="SODI Material Library poster with colourful recycled plastic pieces">
+        <img src="assets/sodi-library-poster.png" alt="SODI Material Library poster" />
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow">Victoria University of Wellington · School of Design Innovation</p>
+        <h1 id="heroTitle">Borrow donated making materials before buying new.</h1>
+        <p class="intro">A working prototype catalogue for SODI students to search leftover project materials, check what is available, and reserve the amount they need for studio work.</p>
+
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="button button-primary" href="#catalogue">Search the catalogue</a>
+          <a class="button button-ghost" href="#booking">View booking tray</a>
+        </div>
+
+        <div class="hero-note">
+          <span>Leave what you can.</span>
+          <span>Take what you need.</span>
+          <span>Design with what already exists.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-stats" aria-label="Library summary">
+      <article>
+        <span id="totalMaterials">0</span>
+        <p>material types listed</p>
+      </article>
+      <article>
+        <span id="totalParts">0</span>
+        <p>donated parts available</p>
+      </article>
+      <article>
+        <span id="reservedParts">0</span>
+        <p>parts booked in this browser</p>
+      </article>
+      <article>
+        <span id="reuseScore">0 kg</span>
+        <p>estimated waste diverted</p>
+      </article>
+    </section>
+
+    <section class="controls-panel" aria-label="Search and filters">
+      <div class="panel-heading">
+        <p class="eyebrow">Live demo inventory</p>
+        <h2>Find a material</h2>
+        <p>Search by material, project use, location, or condition. Quantities update when a booking is made.</p>
+      </div>
+
+      <div class="search-row">
+        <label class="search-box" for="searchInput">
+          <span>Search material library</span>
+          <input id="searchInput" type="search" placeholder="Try plywood, copper wire, marble, string, foam, fabric..." autocomplete="off" />
+        </label>
+
+        <label class="select-box" for="sortSelect">
+          <span>Sort by</span>
+          <select id="sortSelect">
+            <option value="relevance">Best match</option>
+            <option value="stock-high">Most available</option>
+            <option value="stock-low">Lowest stock</option>
+            <option value="az">A to Z</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="filter-strip" id="categoryFilters" aria-label="Material categories"></div>
+    </section>
+
+    <section class="layout-grid">
+      <section class="catalogue-section" id="catalogue" aria-labelledby="catalogueTitle">
+        <div class="section-topline">
+          <div>
+            <p class="eyebrow">Available donations</p>
+            <h2 id="catalogueTitle">Material catalogue</h2>
+          </div>
+          <p class="result-count" id="resultCount">Showing all materials</p>
+        </div>
+
+        <div class="material-grid" id="materialGrid" aria-live="polite"></div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <h3>No matching material found</h3>
+          <p>Try a simpler search term, clear the category filter, or check the donation form for new material intake.</p>
+          <button class="button button-primary" type="button" id="clearSearchButton">Clear search</button>
+        </div>
+      </section>
+
+      <aside class="booking-panel" id="booking" aria-labelledby="bookingTitle">
+        <div class="booking-card">
+          <div class="section-topline compact">
+            <div>
+              <p class="eyebrow">Student reservation</p>
+              <h2 id="bookingTitle">Booking tray</h2>
+            </div>
+            <button class="link-button" type="button" id="clearTrayButton">Clear</button>
+          </div>
+
+          <div class="tray-list" id="trayList"></div>
+
+          <form class="booking-form" id="bookingForm">
+            <label>
+              Student name
+              <input type="text" id="studentName" placeholder="Your name" required />
+            </label>
+            <label>
+              Student email
+              <input type="email" id="studentEmail" placeholder="name@myvuw.ac.nz" required />
+            </label>
+            <label>
+              Project or course
+              <input type="text" id="projectName" placeholder="Example: Industrial Design prototype" required />
+            </label>
+            <label>
+              Pickup date
+              <input type="date" id="pickupDate" required />
+            </label>
+            <label>
+              Notes for the library team
+              <textarea id="bookingNotes" rows="3" placeholder="Add size preferences, workshop needs, or collection notes."></textarea>
+            </label>
+            <button class="button button-primary full-width" type="submit">Book selected materials</button>
+          </form>
+
+          <div class="confirmation-box" id="confirmationBox" hidden></div>
+        </div>
+
+        <div class="history-card">
+          <div class="section-topline compact">
+            <div>
+              <p class="eyebrow">Local demo record</p>
+              <h3>Recent bookings</h3>
+            </div>
+            <button class="link-button" type="button" id="exportButton">Export CSV</button>
+          </div>
+          <div class="history-list" id="historyList"></div>
+          <button class="button button-ghost full-width" type="button" id="resetDemoButton">Reset demo inventory</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="info-section" id="how-it-works" aria-labelledby="howTitle">
+      <div class="panel-heading wide">
+        <p class="eyebrow">Prototype workflow</p>
+        <h2 id="howTitle">How the SODI Material Library works</h2>
+        <p>This prototype is designed for a GitHub Pages site. Bookings are stored in the browser for demonstration, so it can be shown in class without a database or login system.</p>
+      </div>
+
+      <div class="process-grid">
+        <article>
+          <span>01</span>
+          <h3>Search</h3>
+          <p>Students search for a material by name, studio use, condition, or storage bay.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Check stock</h3>
+          <p>Each card shows the available amount, booking unit, condition, and suggested project uses.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Reserve</h3>
+          <p>Students choose an amount and submit a simple reservation for collection from the Te Aro material shelf.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Return or donate</h3>
+          <p>Useful offcuts can come back into the library so the material loop stays active.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="donate-section" id="donate" aria-labelledby="donateTitle">
+      <div>
+        <p class="eyebrow">Material intake</p>
+        <h2 id="donateTitle">Donate leftover project material</h2>
+        <p>Use this section as a prototype intake point for students who have clean, reusable material after a project hand-in. It does not send data anywhere yet, but it shows how the next version could collect donations.</p>
+      </div>
+
+      <form class="donation-form" id="donationForm">
+        <label>
+          Material name
+          <input type="text" id="donationName" placeholder="Example: acrylic sheet offcuts" required />
+        </label>
+        <label>
+          Quantity
+          <input type="number" id="donationQuantity" min="1" value="1" required />
+        </label>
+        <label>
+          Condition
+          <select id="donationCondition">
+            <option>Clean and ready</option>
+            <option>Needs sorting</option>
+            <option>Workshop approval needed</option>
+          </select>
+        </label>
+        <label>
+          Where should it be stored?
+          <input type="text" id="donationLocation" placeholder="Example: Shelf B, timber crate" />
+        </label>
+        <button class="button button-ghost full-width" type="submit">Preview donation entry</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <img src="assets/vuw-logo.png" alt="Victoria University of Wellington crest" />
+      <p><strong>SODI Material Library</strong><br />GitHub Pages prototype for donated studio materials.</p>
+    </div>
+    <p class="footer-note">Prototype content and inventory are sample data for coursework presentation. Replace the data in <code>js/app.js</code> with verified stock before public use.</p>
+  </footer>
+
+  <template id="materialCardTemplate">
+    <article class="material-card">
+      <div class="card-top">
+        <span class="category-pill"></span>
+        <span class="condition-chip"></span>
+      </div>
+      <h3></h3>
+      <p class="description"></p>
+      <div class="stock-meter" aria-hidden="true"><span></span></div>
+      <dl class="material-meta">
+        <div>
+          <dt>Available</dt>
+          <dd class="available-count"></dd>
+        </div>
+        <div>
+          <dt>Unit</dt>
+          <dd class="unit-label"></dd>
+        </div>
+        <div>
+          <dt>Location</dt>
+          <dd class="location-label"></dd>
+        </div>
+        <div>
+          <dt>Use for</dt>
+          <dd class="use-label"></dd>
+        </div>
+      </dl>
+      <div class="card-actions">
+        <label>
+          Amount
+          <input class="amount-input" type="number" min="1" value="1" />
+        </label>
+        <button class="button button-small" type="button">Add to tray</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
