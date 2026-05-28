@@ -1,4 +1,4 @@
-const STORAGE_KEY = "sodiMaterialLibraryPrototype.v2.cleanLibrary"
+const STORAGE_KEY = "sodiMaterialLibrary.v3.humanText"
 
 const defaultMaterials = [
   {
@@ -12,7 +12,7 @@ const defaultMaterials = [
     location: "Paper drawer A",
     use: "sketching",
     weight: 0.02,
-    description: "Large format paper left from presentation pin-ups. Good for sketching, mock-ups, and low-fidelity testing.",
+    description: "Large-format paper left from pin-ups. Useful for sketches, project planning, and early layout work.",
     tags: ["paper", "drawing", "presentation", "sheet", "white"]
   },
   {
@@ -26,7 +26,7 @@ const defaultMaterials = [
     location: "Reuse trolley",
     use: "drafting",
     weight: 0.012,
-    description: "Odd sized paper offcuts from previous studio projects. Best for draft models, test prints, and ideation work.",
+    description: "Odd-sized paper offcuts from previous projects. Good for draft models and quick print checks.",
     tags: ["scrap", "paper", "offcut", "draft", "print"]
   },
   {
@@ -40,8 +40,8 @@ const defaultMaterials = [
     location: "Bay 1",
     use: "structure",
     weight: 0.18,
-    description: "Reusable cardboard sheets suitable for quick form studies, packaging tests, and structural mock-ups.",
-    tags: ["cardboard", "box", "packaging", "sheet", "mockup"]
+    description: "Reusable cardboard sheets for form studies, packaging work, and light structures.",
+    tags: ["cardboard", "box", "packaging", "sheet", "model"]
   },
   {
     id: "cardboard-corrugated",
@@ -54,8 +54,8 @@ const defaultMaterials = [
     location: "Bay 1",
     use: "model making",
     weight: 0.09,
-    description: "Rigid corrugated scraps with visible grain. Strong enough for model bases, frames, and study prototypes.",
-    tags: ["corrugated", "cardboard", "offcut", "model", "prototype"]
+    description: "Rigid corrugated scraps with visible grain. Strong enough for model bases and small project frames.",
+    tags: ["corrugated", "cardboard", "offcut", "model", "project"]
   },
   {
     id: "plywood-3mm",
@@ -68,7 +68,7 @@ const defaultMaterials = [
     location: "Timber crate B",
     use: "laser cutting",
     weight: 0.22,
-    description: "Thin plywood pieces collected from laser-cut student work. Most pieces suit small product forms and test joints.",
+    description: "Thin plywood pieces collected from laser-cut project work. Most pieces suit small forms and joint checks.",
     tags: ["plywood", "timber", "laser", "wood", "offcut"]
   },
   {
@@ -82,7 +82,7 @@ const defaultMaterials = [
     location: "Timber crate B",
     use: "frames",
     weight: 0.38,
-    description: "Stronger plywood pieces for small shelves, test assemblies, and sturdy prototype parts.",
+    description: "Stronger plywood pieces for small shelves, temporary assemblies, and sturdy project parts.",
     tags: ["plywood", "timber", "wood", "frame", "joint"]
   },
   {
@@ -94,9 +94,9 @@ const defaultMaterials = [
     unit: "blocks",
     condition: "Clean cut",
     location: "Timber shelf C",
-    use: "handle tests",
+    use: "handle studies",
     weight: 0.46,
-    description: "Dense beechwood blocks suitable for grip studies, small turning tests, and premium-looking object prototypes.",
+    description: "Dense beechwood blocks for grip studies, small turning work, and polished object details.",
     tags: ["beech", "beechwood", "wood", "block", "handle"]
   },
   {
@@ -110,7 +110,7 @@ const defaultMaterials = [
     location: "Timber shelf A",
     use: "frames",
     weight: 0.13,
-    description: "Light pine strips for framework, spacing tests, edge details, and low-cost jig making.",
+    description: "Light pine strips for framework, spacing, edge details, and simple jigs.",
     tags: ["pine", "pinewood", "wood", "strip", "frame"]
   },
   {
@@ -152,7 +152,7 @@ const defaultMaterials = [
     location: "Model shelf B",
     use: "spatial models",
     weight: 0.08,
-    description: "Foamcore sheets for architectural forms, display boards, quick test objects, and presentation supports.",
+    description: "Foamcore sheets for spatial models, display boards, and presentation supports.",
     tags: ["foamcore", "foam", "board", "white", "model"]
   },
   {
@@ -178,9 +178,9 @@ const defaultMaterials = [
     unit: "pieces",
     condition: "Workshop approval",
     location: "Metal tray",
-    use: "surface tests",
+    use: "surface work",
     weight: 0.2,
-    description: "Small aluminium offcuts for bending tests, finish samples, reflective details, and material studies.",
+    description: "Small aluminium offcuts for bending, finish samples, and reflective project details.",
     tags: ["aluminium", "metal", "sheet", "reflective", "offcut"]
   },
   {
@@ -194,7 +194,7 @@ const defaultMaterials = [
     location: "Metal tray",
     use: "surface texture",
     weight: 0.06,
-    description: "Short foil roll ends for texture tests, reflective mock-ups, light studies, and soft forming experiments.",
+    description: "Short foil roll ends for texture work, light studies, and soft forming.",
     tags: ["tin", "foil", "metal", "reflective", "texture"]
   },
   {
@@ -222,7 +222,7 @@ const defaultMaterials = [
     location: "Wire drawer",
     use: "armatures",
     weight: 0.052,
-    description: "Stiffer wire lengths for armatures, hanging systems, mechanical tests, and structural skeletons.",
+    description: "Stiffer wire lengths for armatures, hanging systems, and structural skeletons.",
     tags: ["steel", "wire", "armature", "metal", "structure"]
   },
   {
@@ -250,7 +250,7 @@ const defaultMaterials = [
     location: "Textile drawer",
     use: "binding",
     weight: 0.04,
-    description: "Soft cotton string for binding tests, hanging elements, texture studies, and temporary assembly.",
+    description: "Soft cotton string for binding, hanging elements, texture work, and temporary assembly.",
     tags: ["string", "cotton", "textile", "rope", "binding"]
   },
   {
@@ -264,7 +264,7 @@ const defaultMaterials = [
     location: "Textile drawer",
     use: "craft joining",
     weight: 0.055,
-    description: "Natural jute twine with a rougher finish. Useful for organic texture, tying, and sustainable material samples.",
+    description: "Natural jute twine with a rougher finish. Useful for organic texture and hand-tied joins.",
     tags: ["jute", "twine", "string", "natural", "binding"]
   },
   {
@@ -278,7 +278,7 @@ const defaultMaterials = [
     location: "Textile bin A",
     use: "soft goods",
     weight: 0.07,
-    description: "Cotton fabric offcuts for soft prototypes, wearable tests, lining samples, and tactile studies.",
+    description: "Cotton fabric offcuts for soft project pieces, wearable samples, and tactile studies.",
     tags: ["fabric", "cotton", "textile", "soft", "offcut"]
   },
   {
@@ -292,7 +292,7 @@ const defaultMaterials = [
     location: "Textile bin B",
     use: "padding",
     weight: 0.035,
-    description: "Felt sheets for padding, acoustic tests, sewn samples, and fast visual mock-ups.",
+    description: "Felt sheets for padding, acoustic samples, sewn details, and quick visual models.",
     tags: ["felt", "fabric", "textile", "padding", "colour"]
   },
   {
@@ -306,7 +306,7 @@ const defaultMaterials = [
     location: "Textile bin C",
     use: "finish samples",
     weight: 0.095,
-    description: "Small leather scraps for handle wraps, finish comparisons, and detail prototypes.",
+    description: "Small leather scraps for handle wraps, finish comparisons, and detail work.",
     tags: ["leather", "scrap", "textile", "finish", "handle"]
   },
   {
@@ -320,7 +320,7 @@ const defaultMaterials = [
     location: "Stone crate",
     use: "material boards",
     weight: 0.62,
-    description: "Small marble sample tiles for material boards, weight studies, premium finish tests, and photography.",
+    description: "Small marble sample tiles for material boards, weight studies, and photography.",
     tags: ["marble", "stone", "tile", "sample", "heavy"]
   },
   {
@@ -334,7 +334,7 @@ const defaultMaterials = [
     location: "Stone crate",
     use: "texture samples",
     weight: 0.12,
-    description: "Fired ceramic test pieces from glaze experiments. Best handled with care for texture and surface research.",
+    description: "Fired ceramic pieces from glaze work. Handle with care when using them for surface research.",
     tags: ["ceramic", "stone", "glaze", "texture", "shard"]
   },
   {
@@ -348,7 +348,7 @@ const defaultMaterials = [
     location: "Plastic shelf A",
     use: "transparent parts",
     weight: 0.11,
-    description: "Clear acrylic pieces for lenses, transparent casings, layered models, and light experiments.",
+    description: "Clear acrylic pieces for transparent layers, casings, and light-based projects.",
     tags: ["acrylic", "plastic", "clear", "transparent", "laser"]
   },
   {
@@ -376,7 +376,7 @@ const defaultMaterials = [
     location: "Plastic bin B",
     use: "reuse experiments",
     weight: 0.03,
-    description: "Clean bottles for circular design exercises, light diffusers, modular forms, and material transformation tests.",
+    description: "Clean bottles for circular design projects, light diffusers, and modular forms.",
     tags: ["plastic", "bottle", "recycled", "container", "reuse"]
   },
   {
@@ -402,9 +402,9 @@ const defaultMaterials = [
     unit: "bands",
     condition: "Mixed sizes",
     location: "Fastener drawer",
-    use: "tension tests",
+    use: "tension work",
     weight: 0.004,
-    description: "Rubber bands for quick tension experiments, closure studies, temporary holding, and elastic mechanisms.",
+    description: "Rubber bands for tension, closures, temporary holding, and elastic mechanisms.",
     tags: ["rubber", "band", "elastic", "mechanism", "fastener"]
   },
   {
@@ -416,9 +416,9 @@ const defaultMaterials = [
     unit: "pieces",
     condition: "Textured faces",
     location: "Flexible materials box",
-    use: "grip tests",
+    use: "grip surfaces",
     weight: 0.14,
-    description: "Rubber offcuts for grip surfaces, gasket ideas, feet for prototypes, and non-slip texture samples.",
+    description: "Rubber offcuts for grip surfaces, gasket ideas, project feet, and non-slip texture samples.",
     tags: ["rubber", "sheet", "grip", "flexible", "texture"]
   },
   {
@@ -432,7 +432,7 @@ const defaultMaterials = [
     location: "Natural materials shelf",
     use: "soft surfaces",
     weight: 0.055,
-    description: "Cork sheets for soft surfaces, insulation studies, pinboard tests, and tactile product details.",
+    description: "Cork sheets for soft surfaces, insulation samples, pinboards, and tactile product details.",
     tags: ["cork", "natural", "sheet", "soft", "insulation"]
   },
   {
@@ -446,7 +446,7 @@ const defaultMaterials = [
     location: "Natural materials shelf",
     use: "small structures",
     weight: 0.003,
-    description: "Bamboo skewers for lightweight structures, trusses, model frames, and joint experiments.",
+    description: "Bamboo skewers for lightweight structures, trusses, model frames, and simple joints.",
     tags: ["bamboo", "stick", "natural", "structure", "model"]
   },
   {
@@ -460,7 +460,7 @@ const defaultMaterials = [
     location: "Natural materials shelf",
     use: "woven forms",
     weight: 0.065,
-    description: "Short rattan lengths for woven forms, natural joinery tests, and hand-made detail studies.",
+    description: "Short rattan lengths for woven forms, natural joinery, and hand-made details.",
     tags: ["rattan", "natural", "woven", "length", "craft"]
   },
   {
@@ -474,7 +474,7 @@ const defaultMaterials = [
     location: "Glass crate",
     use: "containers",
     weight: 0.16,
-    description: "Small jars for packaging studies, display objects, storage concepts, and contained material experiments.",
+    description: "Small jars for packaging projects, display objects, and storage ideas.",
     tags: ["glass", "jar", "container", "packaging", "clear"]
   },
   {
@@ -486,9 +486,9 @@ const defaultMaterials = [
     unit: "pieces",
     condition: "Surface scratches",
     location: "Plastic shelf B",
-    use: "reflection tests",
+    use: "reflection work",
     weight: 0.09,
-    description: "Mirror acrylic scraps for reflective details, optical tests, installation mock-ups, and product accents.",
+    description: "Mirror acrylic scraps for reflective details, optical work, and product accents.",
     tags: ["mirror", "acrylic", "plastic", "reflective", "scrap"]
   },
   {
@@ -498,12 +498,12 @@ const defaultMaterials = [
     available: 11,
     original: 11,
     unit: "sections",
-    condition: "Needs testing",
+    condition: "Check before use",
     location: "Electronics drawer",
-    use: "light prototypes",
+    use: "project lighting",
     weight: 0.025,
-    description: "Short LED strip sections from interaction projects. Test before use and keep to low-voltage prototypes.",
-    tags: ["led", "electronics", "light", "strip", "prototype"]
+    description: "Short LED strip sections from interaction projects. Test before use and keep them to low-voltage work.",
+    tags: ["led", "electronics", "light", "strip", "project"]
   },
   {
     id: "small-motors",
@@ -512,11 +512,11 @@ const defaultMaterials = [
     available: 8,
     original: 8,
     unit: "motors",
-    condition: "Needs testing",
+    condition: "Check before use",
     location: "Electronics drawer",
-    use: "movement tests",
+    use: "movement work",
     weight: 0.055,
-    description: "Small motors for kinetic prototypes and movement studies. These are demo parts and should be tested before assessment work.",
+    description: "Small motors for kinetic projects and movement studies. Test them before using them in assessed work.",
     tags: ["motor", "electronics", "movement", "kinetic", "dc"]
   },
   {
@@ -528,9 +528,9 @@ const defaultMaterials = [
     unit: "switches",
     condition: "Mixed types",
     location: "Electronics drawer",
-    use: "interaction tests",
+    use: "interaction work",
     weight: 0.012,
-    description: "Mixed small switches for interaction prototypes, circuit mock-ups, and basic input studies.",
+    description: "Mixed small switches for interaction projects, circuit checks, and basic input studies.",
     tags: ["switch", "electronics", "input", "button", "circuit"]
   },
   {
@@ -544,7 +544,7 @@ const defaultMaterials = [
     location: "Fastener drawer",
     use: "assembly",
     weight: 0.006,
-    description: "Assorted screws reclaimed from older student prototypes and dismantled fixtures. Use for test assemblies.",
+    description: "Assorted screws reclaimed from past projects and dismantled fixtures. Useful for temporary assemblies.",
     tags: ["screw", "fastener", "assembly", "metal", "hardware"]
   },
   {
@@ -558,7 +558,7 @@ const defaultMaterials = [
     location: "Fastener drawer",
     use: "mechanical joints",
     weight: 0.018,
-    description: "Paired bolts and nuts for adjustable joints, removable assemblies, and mechanical prototypes.",
+    description: "Paired bolts and nuts for adjustable joints, removable assemblies, and mechanical project work.",
     tags: ["bolt", "nut", "fastener", "joint", "hardware"]
   },
   {
@@ -586,7 +586,7 @@ const defaultMaterials = [
     location: "Fastener drawer",
     use: "temporary assembly",
     weight: 0.003,
-    description: "Reusable zip ties for fast rigging, cable control, temporary frame assembly, and installation testing.",
+    description: "Reusable zip ties for fast rigging, cable control, temporary frame assembly, and installation setup.",
     tags: ["zip", "tie", "fastener", "cable", "assembly"]
   },
   {
@@ -598,9 +598,9 @@ const defaultMaterials = [
     unit: "pots",
     condition: "Check before use",
     location: "Finish shelf",
-    use: "colour tests",
+    use: "colour work",
     weight: 0.19,
-    description: "Leftover paint sample pots for colour trials, small surfaces, model finishing, and texture tests.",
+    description: "Leftover paint sample pots for colour trials, small surfaces, and model finishing.",
     tags: ["paint", "finish", "colour", "sample", "surface"]
   },
   {
@@ -614,7 +614,7 @@ const defaultMaterials = [
     location: "Finish shelf",
     use: "surface prep",
     weight: 0.018,
-    description: "Mixed sandpaper sheets for surface preparation, edge finishing, paint tests, and timber prototypes.",
+    description: "Mixed sandpaper sheets for surface preparation, edge finishing, paint checks, and timber work.",
     tags: ["sandpaper", "finish", "grit", "surface", "timber"]
   },
   {
@@ -628,7 +628,7 @@ const defaultMaterials = [
     location: "Finish shelf",
     use: "graphics",
     weight: 0.015,
-    description: "Adhesive vinyl offcuts for labelling, small graphics, masking tests, and presentation detailing.",
+    description: "Adhesive vinyl offcuts for labels, small graphics, masking, and presentation details.",
     tags: ["vinyl", "sticker", "finish", "graphic", "adhesive"]
   },
   {
@@ -642,7 +642,7 @@ const defaultMaterials = [
     location: "Reuse trolley",
     use: "columns",
     weight: 0.045,
-    description: "Paper tubes from roll cores. Good for columns, handles, structural experiments, and modular forms.",
+    description: "Paper tubes from roll cores. Useful for columns, handles, and modular forms.",
     tags: ["paper", "tube", "cardboard", "roll", "structure"]
   },
   {
@@ -654,9 +654,9 @@ const defaultMaterials = [
     unit: "pieces",
     condition: "Stretch varies",
     location: "Textile bin B",
-    use: "ventilation tests",
+    use: "ventilation work",
     weight: 0.032,
-    description: "Mesh fabric pieces for ventilation studies, wearable samples, light diffusion, and soft interface tests.",
+    description: "Mesh fabric pieces for ventilation studies, wearable samples, and light diffusion.",
     tags: ["mesh", "fabric", "textile", "ventilation", "soft"]
   },
   {
@@ -670,7 +670,7 @@ const defaultMaterials = [
     location: "Material sample box",
     use: "form studies",
     weight: 0.31,
-    description: "Sealed air-dry clay leftovers for form studies, ergonomic shaping, texture tests, and quick object mock-ups.",
+    description: "Sealed air-dry clay leftovers for form studies, ergonomic shaping, and texture work.",
     tags: ["clay", "model", "form", "texture", "sample"]
   },
   {
@@ -682,9 +682,9 @@ const defaultMaterials = [
     unit: "rolls",
     condition: "Dry stored",
     location: "Material sample box",
-    use: "mould tests",
+    use: "mould work",
     weight: 0.14,
-    description: "Plaster bandage rolls for shell tests, quick casts, wearable mock-ups, and rough mould experiments.",
+    description: "Plaster bandage rolls for shell work, quick casts, and rough moulds.",
     tags: ["plaster", "bandage", "mould", "cast", "shell"]
   }
 ]
@@ -732,7 +732,7 @@ function loadState() {
       bookings: parsed.bookings || []
     }
   } catch (error) {
-    console.warn("Could not read saved SODI library state. A fresh demo state has been created.", error)
+    console.warn("Could not read the saved SODI library state. A fresh sample state has been created.", error)
     return createFreshState()
   }
 }
@@ -800,13 +800,13 @@ function bindEvents() {
     showToast("Booking tray cleared.")
   })
 
-  document.querySelector("#resetDemoButton").addEventListener("click", () => {
-    const confirmed = window.confirm("Reset the demo inventory and remove local bookings?")
+  document.querySelector("#resetSampleButton").addEventListener("click", () => {
+    const confirmed = window.confirm("Reset the sample inventory and remove local bookings?")
     if (!confirmed) return
     state = createFreshState()
     saveState()
     renderAll()
-    showToast("Demo inventory has been reset.")
+    showToast("Sample inventory has been reset.")
   })
 
   document.querySelector("#exportButton").addEventListener("click", exportBookings)
@@ -1086,7 +1086,7 @@ function submitBooking(event) {
   confirmationBox.hidden = false
   confirmationBox.innerHTML = `
     <strong>Booking ${escapeHtml(booking.reference)} created.</strong><br>
-    Your demo reservation has been saved in this browser. Collect from the SODI material shelf on ${formatDate(booking.pickupDate)}.
+    Your booking has been saved in this browser. Collect from the SODI material shelf on ${formatDate(booking.pickupDate)}.
   `
 
   renderAll()
@@ -1104,7 +1104,7 @@ function renderHistory() {
   if (state.bookings.length === 0) {
     const empty = document.createElement("p")
     empty.className = "empty-tray"
-    empty.textContent = "No demo bookings yet. Completed reservations will appear here."
+    empty.textContent = "No bookings yet. Completed reservations will appear here."
     historyList.appendChild(empty)
     return
   }
@@ -1162,7 +1162,7 @@ function submitDonationPreview(event) {
     use: "to be assessed",
     weight: 0.08,
     custom: true,
-    description: "New donation preview added through the prototype intake form. Confirm, photograph, and sort before public release.",
+    description: "New donation entry added through the intake form. Confirm, photograph, and sort before adding it to the shelf.",
     tags: [name.toLowerCase(), "donation", "intake"]
   }
 
@@ -1173,7 +1173,7 @@ function submitDonationPreview(event) {
   searchTerm = ""
   searchInput.value = ""
   renderAll()
-  showToast(`${name} has been added as a local prototype donation.`)
+  showToast(`${name} has been added as a local donation entry.`)
 }
 
 function exportBookings() {
