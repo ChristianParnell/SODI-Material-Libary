@@ -1,4 +1,4 @@
-const STORAGE_KEY = "sodiMaterialLibraryPrototype.v1"
+const STORAGE_KEY = "sodiMaterialLibraryPrototype.v2.cleanLibrary"
 
 const defaultMaterials = [
   {
